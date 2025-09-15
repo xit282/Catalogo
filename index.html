@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo - Página simple</title>
+  <style>
+    :root{--bg:#f7f7fb;--card:#ffffff;--accent:#0b84ff;--muted:#666}
+    body{font-family:Inter, system-ui, Arial, sans-serif;margin:0;background:var(--bg);color:#111}
+    header{background:linear-gradient(90deg, #0b84ff22, #6dd5ed22);padding:18px 16px}
+    header h1{margin:0;font-size:20px}
+    .container{max-width:980px;margin:18px auto;padding:0 12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+    .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(10,10,20,0.06);display:flex;flex-direction:column;align-items:center}
+    .thumb{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:8px;display:block;cursor:pointer}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .title{font-weight:600;margin-top:10px;text-align:center}
+    .stock{margin-top:6px;font-size:14px;color:var(--muted)}
+    .btn-row{display:flex;gap:8px;margin-top:10px}
+    .btn{padding:8px 10px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
+    .small{font-size:13px}
+    footer{margin:28px 0;text-align:center;color:var(--muted)}
+    @media (max-width:420px){header h1{font-size:18px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Brainrots Disponibles Actualmente </h1>
+    </div>
+  </header>  <main class="container">
+    <div class="grid" id="catalogo">
+      <!-- 5 productos de ejemplo -->
+      <div class="card">
+        <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+          <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/b9ff64e1-ff9e-46c4-837b-bcb074099839_Offer_20250914112440_2241335Large.png?w=300" alt="Producto 1">
+        </a>
+        <div class="title">Ketchuru and Musturu  (297.5m/s) </div>
+        <div class="stock">Stock actual: <span class="small" data-stock>2</span></div>
+        <div class="btn-row">
+          <button class="btn" onclick="comprar(event, this)">Tradear</button>
+          <button class="btn" style="background:#444" onclick="ajustarStock(this,-1)">-</button>
+          <button class="btn" style="background:#444" onclick="ajustarStock(this,1)">+</button>
+        </div>
+      </div><div class="card">
+    <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+      <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/c068243e-cf05-4028-b80c-41436558dec0_Offer_20250915124941_9558469Large.png?w=300" alt="Producto 2">
+    </a>
+    <div class="title">Nuclearo Dinossauro 150M/s�</div>
+    <div class="stock">Stock actual: <span class="small" data-stock>5</span></div>
+    <div class="btn-row">
+      <button class="btn" onclick="comprar(event, this)">Tradear</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,-1)">-</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+      <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/auth0%7C5e76412d0225600cf9714692_Offer_20250909213229_7607176Large.png?w=255" alt="Producto 3">
+    </a>
+    <div class="title">Esok Sekolah 330M/S🧠</div>
+    <div class="stock">Stock actual: <span class="small" data-stock>10</span></div>
+    <div class="btn-row">
+      <button class="btn" onclick="comprar(event, this)">Tradear</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,-1)">-</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+      <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/auth0%7C5e76412d0225600cf9714692_Offer_20250914230852_6479847Large.png?w=255" alt="Producto 4">
+    </a>
+    <div class="title">los bros 288M/S🧠</div>
+    <div class="stock">Stock actual: <span class="small" data-stock>3</span></div>
+    <div class="btn-row">
+      <button class="btn" onclick="comprar(event, this)">Tradear</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,-1)">-</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,1)">+</button>
+    </div>
+  </div>
+  
+  <div class="card">
+    <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+      <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/auth0%7C5efd92e407f3140019b8f4b3_Offer_20250709041503_5985169Large.png?w=300" alt="Producto 3">
+    </a>
+    <div class="title">2x Server Luck (+15 minutes) [249R] </div>
+    <div class="stock">Stock actual: <span class="small" data-stock>indefinido</span></div>
+    <div class="btn-row">
+      <button class="btn" onclick="comprar(event, this)">Tradear</button>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+      <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/auth0%7C5efd92e407f3140019b8f4b3_Offer_20250818115730_7679201Large.png?w=255" alt="Producto 5">
+    </a>
+    <div class="title">Admin Command [7499R]</div>
+    <div class="stock">Stock actual: <span class="small" data-stock>indefinido</span></div>
+    <div class="btn-row">
+      <button class="btn" onclick="comprar(event, this)">Tradear</button>
+
+    </div>
+  </div>
+  
+  <div class="card">
+    <a class="thumb" href="#" data-link="https://www.roblox.com/share?code=6c8a8c560bad1b43a129233d494c27bb&type=Server" onclick="redir(event)">
+      <img src="https://assetsdelivery.eldorado.gg/v7/_offers-v2_/auth0%7C5e76412d0225600cf9714692_Offer_20250912031149_980568Large.png?w=300" alt="Producto 3">
+    </a>
+    <div class="title">Garama and Madundung 62.5 M/S�</div>
+    <div class="stock">Stock actual: <span class="small" data-stock>3</span></div>
+    <div class="btn-row">
+      <button class="btn" onclick="comprar(event, this)">Tradear</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,-1)">-</button>
+      <button class="btn" style="background:#444" onclick="ajustarStock(this,1)">+</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+ Comprendo que Actualmente no ofrecemos mucho pero buscamos ofrecer de lo mejor.  Copyright � eXe davd y tradeosdebrainrots507_
+</footer>
+
+  </main>  <script>
+    // Evita que los enlaces '#' hagan scroll
+    function redir(e){
+      e.preventDefault();
+      const a = e.currentTarget || e.target.closest('a');
+      const link = a.getAttribute('data-link');
+      if(!link) return;
+      // manda directo al enlace (misma pestaña)
+      window.location.href = link;
+    }
+
+    // Boton "Ir al enlace"
+    function comprar(e, btn){
+      e.stopPropagation();
+      const card = btn.closest('.card');
+      const a = card.querySelector('a.thumb');
+      const link = a.getAttribute('data-link');
+      if(link) window.location.href = link;
+    }
+
+    // Ajusta el stock (solo UI; no guarda en servidor)
+    function ajustarStock(btn, delta){
+      const card = btn.closest('.card');
+      const span = card.querySelector('[data-stock]');
+      let val = parseInt(span.textContent || '0',10);
+      val = Math.max(0, val + delta);
+      span.textContent = val;
+    }
+
+    // Hacer que tocar la imagen desde pantallas táctiles funcione (por si el usuario toca el img en lugar del a)
+    document.querySelectorAll('.thumb img').forEach(img=>{
+      img.addEventListener('click', function(ev){
+        const a = this.closest('a');
+        if(a) a.click();
+      })
+    })
+  </script></body>
+</html>
